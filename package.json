@@ -1,0 +1,16 @@
+{
+  "name": "doc-on-demand",
+  "description": "This is the Doc on Demand project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirandaio/doc-on-demand"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.13.0"
+  },
+  "license": "ISC"
+}
