@@ -13,6 +13,10 @@
 </head>
 <body ng-controller="MainController">
   <h1>Doc On Demand</h1>
-  <md-button> Search </md-button>
+  <md-input-container flex>
+    <label>Patient ID</label>
+    <input ng-model="patient.id">
+  </md-input-container>
+  <md-button ng-click="getPatient()"> Search </md-button>
 </body>
 </html>

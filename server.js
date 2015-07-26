@@ -20,15 +20,14 @@ api.status.on('error', function(error) {
 })
 
 function main() {
-
-  app.get('/customfields', function(req, res) {
-
-    api.GET('/customfields')
+  app.get('/patients/:id', function(req, res) {
+    var id = req.params.id;
+    api.GET('/patients/' + id)
       .on('done', function(response) {
         res.json(response);
       })
       .on('error', function(error) {
-        console.log(error);
+        res.end(error);
       });
   });
 
