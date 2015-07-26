@@ -22,9 +22,9 @@ api.status.on('error', function(error) {
 })
 
 function main() {
-  app.get('/patients/:id', function(req, res) {
-    var id = req.params.id;
-    api.GET('/patients/' + id)
+  app.get('/patients/:patientid', function(req, res) {
+    var patientid = req.params.patientid;
+    api.GET('/patients/' + patientid)
       .on('done', function(response) {
         res.json(response);
       })

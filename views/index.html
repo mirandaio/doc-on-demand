@@ -17,11 +17,20 @@
   <header>
     <img class="logo" src="dod-large.png">
   </header>
-  <div layout="row">
+  <div>
+  </div>
+  <div>
+    <md-button class="md-raised md-primary" ng-click="setShowTable(true)">Patient List</md-button>
+    <md-button class="md-raised md-primary" ng-click="setShowTable(false)">Find Patient</md-button>
+  </div>
+  <div ng-if="showTable">
+    Table
+  </div>
+  <div layout="row" ng-if="!showTable">
     <div flex>
       <md-input-container flex>
         <label>Patient ID</label>
-        <input ng-model="patient.id">
+        <input ng-model="patient.patientid">
       </md-input-container>
       <md-button class="md-raised md-primary" ng-click="getPatient()"> Search </md-button>
     </div>
