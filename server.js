@@ -21,17 +21,63 @@ api.status.on('error', function(error) {
   console.log(error)
 })
 
+var patientids = [1, 2, 3, 4, 4908];
+
 function main() {
-  app.get('/patients/:patientid', function(req, res) {
-    var patientid = req.params.patientid;
-    api.GET('/patients/' + patientid)
-      .on('done', function(response) {
-        res.json(response);
-      })
-      .on('error', function(error) {
-        res.end(error);
-      });
+  app.get('/patients', function(req, res) {
+    var patients = [];
+    var dataCount = 0;
+
+    function checkDataCount() {
+      if(dataCount === patientids.length) {
+        res.json(patients);
+      }
+    }
+
+    patientids.forEach(function(patientid) {
+      var patient = {};
+      api.GET('/patients/' + patientid)
+        .on('done', function(response) {
+          patient.patientid = response[0].patientid;
+          patient.firstname = response[0].firstname;
+          patient.lastname = response[0].lastname;
+          patients.push(patient);
+          dataCount++;
+          checkDataCount();
+        })
+        .on('error', function(error) {
+          res.end(error);
+        });
+    });
   });
+
+  app.get('/appointments', function(req, res) {
+    var appointments = [];
+    var count = 0;
+
+    function checkCount() {
+      if(count === patientids.length) {
+        res.json(appointments);
+      }
+    }
+
+    patientids.forEach(function(patientid) {
+      setTimeout(function() {
+      var appointment = {};
+      api.GET('/patients/' + patientid + '/appointments')
+        .on('done', function(response) {
+          appointment.patientid = patientid;
+          appointment.appointments = response.appointments;
+          appointments.push(appointment);
+          count++;
+          checkCount();
+        })
+        .on('error', function(error) {
+          res.send(error);
+        });
+      }, 300);
+    });
+  })
 
   app.listen(port);
 }

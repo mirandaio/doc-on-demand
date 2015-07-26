@@ -18,55 +18,25 @@
     <img class="logo" src="dod-large.png">
   </header>
   <div>
+    <md-button class="md-raised md-primary" ng-click="refresh()">Refresh</md-button>
+    <md-button class="md-raised md-primary" ng-click="notify()">Notify</md-button>
   </div>
-  <div>
-    <md-button class="md-raised md-primary" ng-click="setShowTable(true)">Patient List</md-button>
-    <md-button class="md-raised md-primary" ng-click="setShowTable(false)">Find Patient</md-button>
-  </div>
-  <div ng-if="showTable">
-    Table
-  </div>
-  <div layout="row" ng-if="!showTable">
-    <div flex>
-      <md-input-container flex>
-        <label>Patient ID</label>
-        <input ng-model="patient.patientid">
-      </md-input-container>
-      <md-button class="md-raised md-primary" ng-click="getPatient()"> Search </md-button>
-    </div>
-    <div flex>
-      <md-input-container flex>
-        <label>Firt Name</label>
-        <input ng-model="patient.firstname">
-      </md-input-container>
-      <md-input-container flex>
-        <label>Last Name</label>
-        <input ng-model="patient.lastname">
-      </md-input-container>
-      <md-input-container flex>
-        <label>DOB</label>
-        <input ng-model="patient.dob">
-      </md-input-container>
-      <md-input-container flex>
-        <label>Email</label>
-        <input ng-model="patient.email">
-      </md-input-container>
-      <md-input-container flex>
-        <label>Phone Number</label>
-        <input ng-model="patient.homephone">
-      </md-input-container>
-      <md-input-container flex>
-        <label>Address</label>
-        <input ng-model="patient.address1">
-      </md-input-container>
-      <md-input-container flex>
-        <label>City</label>
-        <input ng-model="patient.city">
-      </md-input-container>
-      <md-input-container flex>
-        <label>State</label>
-        <input ng-model="patient.state">
-      </md-input-container>
-    </div>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Last Appointment</th>
+      <th>Time</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="patient in patients track by $index">
+        <td>{{patient.patientid}}</td>
+        <td>{{patient.firstname}}</td>
+        <td>{{patient.lastname}}</td>
+        <td>{{patient.lastappointment}}</td>
+        <td>{{patient.starttime}}</td>
+      </tr>
+    </tbody>
 </body>
 </html>
