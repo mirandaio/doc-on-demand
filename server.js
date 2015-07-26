@@ -8,6 +8,7 @@ app.use(express.static('views'));
 app.use(express.static('bower_components'));
 app.use(express.static('js'));
 app.use(express.static('img'));
+app.use(express.static('css'));
 
 var key = 'w7vh4qegxmh9xbrhkyx2b779';
 var secret = 'cNy7r8DhDJVRFWk';
@@ -17,7 +18,7 @@ var api = new athenahealthapi.Connection(version, key, secret, practiceid);
 
 api.status.on('ready', main)
 api.status.on('error', function(error) {
-          console.log(error)
+  console.log(error)
 })
 
 function main() {
