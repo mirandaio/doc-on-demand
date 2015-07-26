@@ -7,6 +7,7 @@ var port = process.env.PORT || 8080;
 app.use(express.static('views'));
 app.use(express.static('bower_components'));
 app.use(express.static('js'));
+app.use(express.static('img'));
 
 var key = 'w7vh4qegxmh9xbrhkyx2b779';
 var secret = 'cNy7r8DhDJVRFWk';
