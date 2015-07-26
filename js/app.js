@@ -8,6 +8,7 @@ angular.module('docOnDemand', ['ngMaterial'])
       $http.get('/patients/' + $scope.patient.id)
         .success(function(data, status, header, config) {
           console.log(data);
+          $scope.patient = data[0];
         })
         .error(function(data, status, headers, config) {
           console.log(data);

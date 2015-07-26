@@ -17,10 +17,47 @@
   <header>
     <img class="logo" src="dod-large.png">
   </header>
-  <md-input-container flex>
-    <label>Patient ID</label>
-    <input ng-model="patient.id">
-  </md-input-container>
-  <md-button class="md-raised md-primary" ng-click="getPatient()"> Search </md-button>
+  <div layout="row">
+    <div flex>
+      <md-input-container flex>
+        <label>Patient ID</label>
+        <input ng-model="patient.id">
+      </md-input-container>
+      <md-button class="md-raised md-primary" ng-click="getPatient()"> Search </md-button>
+    </div>
+    <div flex>
+      <md-input-container flex>
+        <label>Firt Name</label>
+        <input ng-model="patient.firstname">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Last Name</label>
+        <input ng-model="patient.lastname">
+      </md-input-container>
+      <md-input-container flex>
+        <label>DOB</label>
+        <input ng-model="patient.dob">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Email</label>
+        <input ng-model="patient.email">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Phone Number</label>
+        <input ng-model="patient.homephone">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Address</label>
+        <input ng-model="patient.address1">
+      </md-input-container>
+      <md-input-container flex>
+        <label>City</label>
+        <input ng-model="patient.city">
+      </md-input-container>
+      <md-input-container flex>
+        <label>State</label>
+        <input ng-model="patient.state">
+      </md-input-container>
+    </div>
 </body>
 </html>
