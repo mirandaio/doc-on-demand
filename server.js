@@ -21,7 +21,7 @@ api.status.on('error', function(error) {
   console.log(error)
 })
 
-var patientids = [1, 2, 3, 4, 4908];
+var patientids = [1, 4918, 3, 4, 4908];
 
 function main() {
   app.get('/patients', function(req, res) {
